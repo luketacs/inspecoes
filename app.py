@@ -241,5 +241,4 @@ Segue em anexo o relatório da inspeção termográfica da OS {numero_os}.
     )
 
     st.success("✅ Relatório gerado e enviado com sucesso!")
-    time(3)
     st.rerun()
