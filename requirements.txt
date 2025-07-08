@@ -4,3 +4,4 @@ fpdf
 Pillow
 matplotlib
 openpyxl
+os
