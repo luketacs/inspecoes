@@ -14,7 +14,7 @@ STORAGE_PATH = "registros"
 IMAGEM_PATH = "imagens"
 LOGO_PATH = "logo.png"
 OS_FILE = "os's.xlsx"
-HISTORICO_FILE = "historico_inspecoes.xlsx"
+HISTORICO_FILE = "historico.xlsx"
 EMAIL_REMETENTE = "lukinhamala6@gmail.com" 
 EMAIL_SENHA = "sjdup ifgr lscq pnxv"
 
