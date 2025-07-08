@@ -7,6 +7,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import smtplib
 from email.message import EmailMessage
+import time 
 
 # ========== CONFIGURAÇÕES ==========
 st.set_page_config(page_title="Inspeções Termográficas PPTM")
@@ -15,8 +16,8 @@ IMAGEM_PATH = "imagens"
 LOGO_PATH = "logo.png"
 OS_FILE = "os's.xlsx"
 HISTORICO_FILE = "historico_inspecoes.xlsx"
-EMAIL_REMETENTE = "lukinhamala6@gmail.com" 
-EMAIL_SENHA = "sjdup ifgr lscq pnxv"
+EMAIL_REMETENTE = "lukinhamala6@gmail.com"
+EMAIL_SENHA = "jdup ifgr lscq pnxv"
 
 # ========== CARREGAMENTO ==========
 @st.cache_data
@@ -33,14 +34,14 @@ def buscar_dados_os(numero_os):
         return resultado.iloc[0]['Descrição'], resultado.iloc[0]['Bem']
     return "Ordem não encontrada.", ""
 
-def salvar_historico(data, os, bem, r, s, t, temp):
+def salvar_historico(data, numero_os_hist, bem, r, s, t, temp):
     if os.path.exists(HISTORICO_FILE):
         df = pd.read_excel(HISTORICO_FILE)
     else:
         df = pd.DataFrame(columns=["Data", "Numero_OS", "Codigo_BEM", "Corrente R", "Corrente S", "Corrente T", "Temperatura"])
     novo = pd.DataFrame([{
         "Data": data,
-        "Numero_OS": os,
+        "Numero_OS": numero_os_hist,
         "Codigo_BEM": bem,
         "Corrente R": r,
         "Corrente S": s,
@@ -240,4 +241,5 @@ Segue em anexo o relatório da inspeção termográfica da OS {numero_os}.
     )
 
     st.success("✅ Relatório gerado e enviado com sucesso!")
+    time(3)
     st.rerun()
